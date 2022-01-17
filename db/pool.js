@@ -1,6 +1,6 @@
 //import 
 const { Pool } = require('pg');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv/config');
 
 //Set config of db 
 const db_config = {
