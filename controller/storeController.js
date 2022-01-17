@@ -29,17 +29,17 @@ exports.saveStore = async (req,res)=>{
         var createdBy = 'admin';
         var createdOn = new Date();
         //req body 
-        var storeName = req.body.storeName; 
+        var storeName = req.body.storeName ; 
         var address   = req.body.address;
         if(!storeName || !address){
             return res.status(500).send({error:'Store name and address are required , can not be empty'});
             
         }
        let storeCode =  util.generateStoreCode();
-        values = [storeName,storeCode,address,createdBy, createdOn];
+        values = [storeName , storeCode , address, createdBy, createdOn];
         var saveStoreQuery = queries.queryList.SAVE_STORE_QUERY;
-        await dbConnection.dbQuery(saveStoreQuery);
-        return res.status(200).send("Successfully store created ")
+        await dbConnection.dbQuery(saveStoreQuery,values);
+        return res.status(201).send("Successfully store created ")
 
     } catch(err){
         console.log("Error : "+err);
@@ -47,3 +47,4 @@ exports.saveStore = async (req,res)=>{
  
 
 }
+
