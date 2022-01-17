@@ -8,7 +8,7 @@ var util = require('../Util/utility');
     
 
 */
-exports.getStoreList= (req,res)=>{
+exports.getStoreList=async (req,res)=>{
     try{
         
         //get query .
