@@ -36,7 +36,7 @@ exports.saveStore = (req,res)=>{
             
         }
        let storeCode =  util.generateStoreCode();
-        values = [];
+        values = [storeName,storeCode,address,createdBy, createdOn];
         var saveStoreQuery = queries.queryList.SAVE_STORE_QUERY;
         await dbConnection.dbQuery(saveStoreQuery);
         return res.status(200).send("Successfully store created ")
