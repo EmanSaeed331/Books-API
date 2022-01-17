@@ -13,6 +13,6 @@ app.get("/",function(req,res){
 
 });
 app.use("api/v1/",storeRoute);
-app.listen(port,()=>{
+app.listen(3000,()=>{
     console.log('Server start........');
 })
