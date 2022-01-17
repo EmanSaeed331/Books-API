@@ -1,5 +1,5 @@
 //import 
-const { pool } = require('pg');
+const { Pool } = require('pg');
 const dotenv = require('dotenv');
 
 //Set config of db 
@@ -13,13 +13,13 @@ const db_config = {
   connectionTimeoutMillie: 300,
   // number of milliseconds a client must sit idle in the pool and not be checked out
   // before it is disconnected from the backend and discarded
-  idleTimeoutMillie?: 200,
+  idleTimeoutMillie: 200,
   // maximum number of clients the pool should contain
-  max?: 20,
+  max: 20,
   
 }
   //pool emit the connect event 
-  const pool = new pool(db_config);
+  const pool= new Pool(db_config);
 pool.on('connect', client => {
     console.log('database is connected');
   });
