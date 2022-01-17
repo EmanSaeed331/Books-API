@@ -1,6 +1,13 @@
 var queries = require('../db/queries');
 var dbConnection = require('../db/connection');
 
+/* Get Store List 
+    - get Query 
+    - get result with (await) 
+        - await : stop execution until the getting the result . 
+    
+
+*/
 exports.getStoreList= (req,res)=>{
     try{
         
