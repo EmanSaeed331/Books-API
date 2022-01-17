@@ -12,7 +12,7 @@ app.get("/",function(req,res){
     res.send("Server Started...");
 
 });
-app.use("api/v1/",storeRoute);
+app.use("/api/v1",storeRoute);
 app.listen(3000,()=>{
     console.log('Server start........');
 })
