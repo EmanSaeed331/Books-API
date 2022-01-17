@@ -24,3 +24,15 @@ exports.getStoreList= (req,res)=>{
     }
 
 }
+exports.saveStore = (req,res)=>{
+    var createdBy = 'admin';
+    var createdOn = new Date();
+    //req body 
+    var storeName = req.body.storeName ; 
+    var address   = req.body.address;
+    if(!storeName || !address){
+        return res.status(500).send({error:'Store name and address are required , can not be empty'});
+        
+    } 
+
+}
