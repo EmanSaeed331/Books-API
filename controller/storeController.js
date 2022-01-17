@@ -15,7 +15,7 @@ exports.getStoreList=async (req,res)=>{
         var storeListQuery = queries.queryList.GET_STORE_LIST_QUERY;
         // await -> make block for code until finishing . 
         var result  =  await dbConnection.dbQuery(storeListQuery);
-        return res.status(200).send(JSON.stringify(result));
+        return res.status(200).send(JSON.stringify(result.rows));
     }
     catch(err){
         console.log("Error:"+err)
