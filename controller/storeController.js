@@ -24,7 +24,7 @@ exports.getStoreList=async (req,res)=>{
     }
 
 }
-exports.saveStore = (req,res)=>{
+exports.saveStore = async (req,res)=>{
     try{ 
         var createdBy = 'admin';
         var createdOn = new Date();
