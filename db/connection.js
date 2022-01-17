@@ -3,7 +3,7 @@ var pool = require('./pool');
 //promise 
 //Queries with generic way .
 
-exports.query= (QueryText,QueryParams) =>{
+exports.dbQuery= (QueryText,QueryParams) =>{
     return new Promise((resolve,reject)=>{
         pool.query(QueryText,QueryParams)
         .then(res =>{
