@@ -1,4 +1,4 @@
-exports.Strore = class Store{
+exports.Store = class Store{
 
     constructor(storeId,storeName,code,address){
         this.storeId = storeId;
