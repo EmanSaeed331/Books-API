@@ -1,3 +1,7 @@
+CREATE SCHEMA bms AUTHORIZATION postgres;
+
+
+
 -- bms.book definition
 
 -- Drop table
