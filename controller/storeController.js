@@ -1,6 +1,6 @@
 var queries = require('../db/queries');
 var dbConnection = require('../db/connection');
-
+var util = require('../Util/utility');
 /* Get Store List 
     - get Query 
     - get result with (await) 
@@ -35,6 +35,7 @@ exports.saveStore = (req,res)=>{
             return res.status(500).send({error:'Store name and address are required , can not be empty'});
             
         }
+       let storeCode =  util.generateStoreCode();
         values = [];
         var saveStoreQuery = queries.queryList.SAVE_STORE_QUERY;
         await dbConnection.dbQuery(saveStoreQuery);
