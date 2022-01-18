@@ -96,3 +96,25 @@ exports.updateBook = async (req,res)=>{
  
 
 }
+
+exports.deleteBook = async (req,res) => 
+{
+    var bookId = req.params.bookId;
+    try{
+
+        if(!bookId){
+
+            return res.status(500).send({error:'bookId must be provided'});   
+        }   
+        var deleteBookQuery = queries.queryList.DELETE_BOOK_QUERY;
+        await dbConnection.dbQuery(deleteBookQuery,[bookId]);
+        return res.status(200).send({error:'book deleted successfully'});
+    
+    }
+    catch (err){
+        return res.status(500).send({error:'cant delete book'});   
+
+
+    }
+   
+}
