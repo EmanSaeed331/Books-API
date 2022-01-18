@@ -21,7 +21,7 @@ exports.getBookList=async (req,res)=>{
 
 exports.getBookDetails=async (req,res)=>{
     try{
-        var bookId = req.params.id;
+        var bookId = req.params.bookId;
         //get query .
         var bookDetailsQuery = queries.queryList.GET_BOOK_DETAILS_QUERY;
         // await -> make block for code until finishing . 
