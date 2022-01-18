@@ -25,7 +25,7 @@ exports.getBookDetails=async (req,res)=>{
         //get query .
         var bookDetailsQuery = queries.queryList.GET_BOOK_DETAILS_QUERY;
         // await -> make block for code until finishing . 
-        var result  =  await dbConnection.dbQuery(bookListQuery,[bookId]);
+        var result  =  await dbConnection.dbQuery(bookDetailsQuery,[bookId]);
         return res.status(200).send(JSON.stringify(result.rows[0]));
     }
     catch(err){
