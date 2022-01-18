@@ -35,8 +35,6 @@ exports.getBookDetails=async (req,res)=>{
     }
 
 }
-
-
 exports.saveBook = async (req,res)=>{
     try{ 
         var createdBy = 'admin';
@@ -62,6 +60,38 @@ exports.saveBook = async (req,res)=>{
     } catch(err){
         console.log("Error : "+err);
         return res.status(500).send({error:"Failed to add new book "})
+    }
+ 
+
+}
+
+
+exports.updateBook = async (req,res)=>{
+    try{ 
+        var createdBy = 'admin';
+        var createdOn = new Date();
+        //req body 
+        var  bookId = req.body.bookId; 
+        var title = req.body.title; 
+        var description   = req.body.description;
+        var auther   = req.body.auther;
+        var publisher   = req.body.publisher;
+        var pages   = req.body.pages;
+        var storeCode   = req.body.storeCode;
+
+
+        if(!bookId || !title  || !auther || !publisher || !storeCode){
+            return res.status(500).send({error:'bookId','book , title , author , publisher and storeCode  are  required , can not be empty'});
+            
+        }
+        values = [title , description , auther, publisher, pages,storeCode,createdOn,createdBy,bookId];
+        var updateBookQuery = queries.queryList.UPDATE_BOOK_QUERY;
+        await dbConnection.dbQuery(updateBookQuery,values);
+        return res.status(201).send("Successfully update book :"+bookId);
+
+    } catch(err){
+        console.log("Error : "+err);
+        return res.status(500).send({error:"Failed to update book :"+bookId})
     }
  
 
