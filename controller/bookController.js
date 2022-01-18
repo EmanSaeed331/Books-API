@@ -35,3 +35,34 @@ exports.getBookDetails=async (req,res)=>{
     }
 
 }
+
+
+exports.saveBook = async (req,res)=>{
+    try{ 
+        var createdBy = 'admin';
+        var createdOn = new Date();
+        //req body 
+        var title = req.body.title ; 
+        var description   = req.body.description;
+        var auther   = req.body.auther;
+        var publisher   = req.body.publisher;
+        var pages   = req.body.pages;
+        var storeCode   = req.body.storeCode;
+
+
+        if(!title  || auther || publisher || storeCode){
+            return res.status(500).send({error:'book  title , author , publisher and storeCode  are  required , can not be empty'});
+            
+        }
+        values = [title , description , auther, publisher, pages,storeCode];
+        var saveStoreQuery = queries.queryList.SAVE_BOOK_QUERY;
+        await dbConnection.dbQuery(saveStoreQuery,values);
+        return res.status(201).send("Successfully adding new book ")
+
+    } catch(err){
+        console.log("Error : "+err);
+        return res.status(500).send({error:"Failed to add new store "})
+    }
+ 
+
+}
