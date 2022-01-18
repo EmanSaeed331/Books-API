@@ -4,7 +4,10 @@ var bookController = require('../controller/bookController')
 
 
 router.get("/books",bookController.getBookList);
-router.get("/book/details/:bookId",bookController.getBookDetails);
-router.post("/book/save",bookController.saveBook);
+router.get("/books/details/:bookId",bookController.getBookDetails);
+router.post("/books/save",bookController.saveBook);
+router.put("/books/update",bookController.updateBook);
+router.delete("/books/delete/:bookId",bookController.deleteBook);
+
 
 module.exports = router
