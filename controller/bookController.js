@@ -81,8 +81,8 @@ exports.updateBook = async (req,res)=>{
 
 
         if(!bookId || !title  || !auther || !publisher || !storeCode){
-            return res.status(500).send({error:'bookId','book , title , author , publisher and storeCode  are  required , can not be empty'});
-            
+            return res.status(500).send({error :'bookId,book , title , author , publisher and storeCode  are  required , can not be empty'})
+
         }
         values = [title , description , auther, publisher, pages,storeCode,createdOn,createdBy,bookId];
         var updateBookQuery = queries.queryList.UPDATE_BOOK_QUERY;
