@@ -3,6 +3,8 @@
 
 ## Installation
 ### Use the package manager npm to install dependencies in package.json
-# link npm install
+```bash
+npm install
+```
 ## Usage
 ### just use node server.js to run the application using the url http://localhost:3000
