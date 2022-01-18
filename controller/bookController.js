@@ -50,18 +50,18 @@ exports.saveBook = async (req,res)=>{
         var storeCode   = req.body.storeCode;
 
 
-        if(!title  || auther || publisher || storeCode){
-            return res.status(500).send({error:'book  title , author , publisher and storeCode  are  required , can not be empty'});
+        if(!title  || !auther || !publisher || !storeCode){
+            return res.status(500).send({error:'book , title , author , publisher and storeCode  are  required , can not be empty'});
             
         }
-        values = [title , description , auther, publisher, pages,storeCode];
+        values = [title , description , auther, publisher, pages,storeCode,createdOn,createdBy];
         var saveStoreQuery = queries.queryList.SAVE_BOOK_QUERY;
         await dbConnection.dbQuery(saveStoreQuery,values);
         return res.status(201).send("Successfully adding new book ")
 
     } catch(err){
         console.log("Error : "+err);
-        return res.status(500).send({error:"Failed to add new store "})
+        return res.status(500).send({error:"Failed to add new book "})
     }
  
 

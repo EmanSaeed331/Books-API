@@ -2,6 +2,8 @@ var express = require('express');
 var cors    = require('cors'); 
 var bodyParser = require('body-parser');
 var storeRoute = require('./router/storeRoute');
+var bookRoute = require('./router/bookRoute');
+
 
 var app = express();
 app.use(cors());
@@ -13,6 +15,7 @@ app.get("/",function(req,res){
 
 });
 app.use("/api/v1",storeRoute);
-app.listen(8000,()=>{
+app.use("/api/v1",bookRoute);
+app.listen(3000,()=>{
     console.log('Server start........');
 })
